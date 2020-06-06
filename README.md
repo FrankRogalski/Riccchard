@@ -1,0 +1,2 @@
+# Riccchard
+small discord bot
