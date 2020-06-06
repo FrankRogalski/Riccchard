@@ -10,5 +10,5 @@ def use(msg):
     counter += 1
     if random.random() > 1 / (counter + 0.5):
         counter = 0
-        return random.choice(responses), False
-    return "...", False
+        return random.choice(responses)
+    return "..."

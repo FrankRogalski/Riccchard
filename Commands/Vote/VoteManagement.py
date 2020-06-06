@@ -29,7 +29,7 @@ def use (msg):
         output = get_votings()
     else:
         output = 'Thats not a valid option'
-    return output, False
+    return output
 
 def declare_vote(votes):
     if len(votes) < 3 or votes[0] in votings: return "Please specify a name and at least 2 voting Options"

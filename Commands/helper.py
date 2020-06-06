@@ -7,7 +7,7 @@ def use(msg):
 
     if len(msg) > 1:
         command = classes.get(msg[1])
-        if command: return f"```{command.helping}```", False
+        if command: return f"```{command.helping}```"
     
     out = "\n".join(command.helping for command in classes.values())
-    return f"```{out}```", False
+    return f"```{out}```"

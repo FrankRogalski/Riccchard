@@ -30,22 +30,22 @@ def get_systems(system_string):
 def use(msg):
     contents = msg.content.split(" ")
     if len(contents) != 3:
-        return f"Wrong number of arguments. This is the Syntax: {helping()}", False
+        return f"Wrong number of arguments. This is the Syntax: {helping()}"
 
     try:
         systems = get_systems(contents[1])
         start = list(map(turn_ord(systems.start), contents[2]))
     except ValueError:
-        return "Conversion Error. Please make shure your bases aren't bigger than 36 and that your input matches the base", False
+        return "Conversion Error. Please make shure your bases aren't bigger than 36 and that your input matches the base"
 
     summe = sum(int(i) * systems.start ** power for power, i in enumerate(start[::-1]))
 
     if summe > sys.float_info.max or summe < sys.float_info.min:
-        return "Das result is to small/big", False
+        return "Das result is to small/big"
 
     rest = []
     while summe > 0:
         rest.append(summe % systems.goal)
         summe //= systems.goal
 
-    return "".join(chr(i + 55) if i > 9 else str(i) for i in rest)[::-1], False
+    return "".join(chr(i + 55) if i > 9 else str(i) for i in rest)[::-1]

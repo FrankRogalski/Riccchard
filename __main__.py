@@ -5,6 +5,12 @@ from commands import convert, countdown, dad, flip, hacki, helper, repeat, say, 
 import commands.vote.voteManagement as voteManagement
 import config
 
+async def send_message(message, text):
+    if (type(text) == str):
+        await message.channel.send(text)
+    else:
+        await message.channel.send(text[0], tts=text[1])
+
 if __name__ == "__main__":
     commands = {i.keyword: i for i in (convert, countdown, dad, flip, hacki, helper, repeat, say, spacey, tuncer, tunjaja, voteManagement)}
     commands["help"].classes = commands
@@ -23,7 +29,7 @@ if __name__ == "__main__":
         i = message.content.find(" ")
         command = commands.get(message.content[1:(i if i != -1 else len(message.content))])
         if command and message.content.startswith("|"):
-            ans = command.use(message)
-            await message.channel.send(ans[0], tts=ans[1])
+            await send_message(message, command.use(message))
+            
 
     client.run(config.token)
