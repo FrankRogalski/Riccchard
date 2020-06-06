@@ -1,9 +1,8 @@
-class Tunjaja:
-    def use(self, msg):
-        return "lol", False
+def use(msg):
+    return "lol", False
 
-    def get_keyword(self):
-        return "tunjaja"
+def get_keyword():
+    return "tunjaja"
 
-    def helping(self):
-        return f"|{self.get_keyword()} - Classic tunja"
+def helping():
+    return f"|{get_keyword()} - Classic tunja"

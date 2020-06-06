@@ -1,19 +1,18 @@
 import random
 
-class Hacki:
-    def __init__(self):
-        self.__counter = 0
-        self.responses = ("Was?!?!?", "huh", "wa", "wie")
+counter = 0
+responses = ("Was?!?!?", "huh", "wa", "wie")
 
-    def use(self, msg):
-        self.__counter += 1
-        if random.random() > 1 / (self.__counter + 0.5):
-            self.__counter = 0
-            return random.choice(self.responses), False
-        return "...", False
+def use(msg):
+    global counter
+    counter += 1
+    if random.random() > 1 / (counter + 0.5):
+        counter = 0
+        return random.choice(responses), False
+    return "...", False
 
-    def get_keyword(self):
-        return 'hacki'
+def get_keyword():
+    return 'hacki'
 
-    def helping(self):
-        return f"|{self.get_keyword()} - Wakes up... if you are lucky"
+def helping():
+    return f"|{get_keyword()} - Wakes up... if you are lucky"

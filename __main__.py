@@ -1,31 +1,22 @@
 import asyncio
 import discord
 
-from Commands.Convert import Convert
-from Commands.Help import Help
-from Commands.Flip import Flip
-from Commands.Tuncer import Tuncer
-from Commands.Hacki import Hacki
-from Commands.Repeat import Repeat
-from Commands.Say import Say
-from Commands.Tunjaja import Tunjaja
-from Commands.Spacey import Spacey
-from Commands.Vote.VoteManagement import VoteManagement
-from Commands.CanIHazDadJoke import CanIHazDadJoke
+from commands import *
+import commands.vote.voteManagement as voteManagement
 import config
 
 if __name__ == "__main__":
-    commands = {i.get_keyword(): i for i in (Help(), Convert(), Flip(), Hacki(), Repeat(), Say(), Spacey(), Tuncer(), VoteManagement(), Tunjaja(), CanIHazDadJoke())}
+    commands = {i.get_keyword(): i for i in (helper, convert, flip, hacki, repeat, say, spacey, voteManagement, tuncer, tunjaja, dad, countdown)}
     commands["help"].set_class_list(commands)
 
     client = discord.Client()
     
     @client.event
     async def on_ready():
-        print('Logged in as')
+        print("Logged in as")
         print(client.user.name)
         print(client.user.id)
-        print('------')
+        print("------")
 
     @client.event
     async def on_message(message):
