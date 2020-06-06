@@ -3,7 +3,7 @@ keyword = "help"
 helping = f"|{keyword} [Command] - Tells you stuff about the commands"
 
 def use(msg):
-    msg = msg.content.split(" ")
+    msg = msg.content.split()
 
     if len(msg) > 1:
         command = classes.get(msg[1])

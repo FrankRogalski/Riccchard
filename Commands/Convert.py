@@ -4,17 +4,13 @@ from collections import namedtuple
 keyword = "convert"
 helping = f"|{keyword} <Numeral system'to'Numeral system> <number> - Converts numbers between two numeral systems"
 
-def is_number(s):
-    try:
-        float(s)
-        return True
-    except ValueError:
-        return False
-
 def turn_ord(system):
     def start(digit):
         nonlocal system
-        digit = int(digit) if is_number(digit) else ord(digit.upper()) - 55
+        try:
+            digit = int(digit) 
+        except ValueError:
+            digit = ord(digit.upper()) - 55
         if digit > 35 or digit >= system: raise ValueError()
         return digit
     return start
@@ -28,7 +24,7 @@ def get_systems(system_string):
     return namedtuple("Systems", "start goal")(*(validate(i) for i in system_string.split("to")))
 
 def use(msg):
-    contents = msg.content.split(" ")
+    contents = msg.content.split()
     if len(contents) != 3:
         return f"Wrong number of arguments. This is the Syntax: {helping()}"
 
