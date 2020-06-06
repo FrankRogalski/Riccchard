@@ -1,10 +1,11 @@
 import random
 
 class Flip:
+    def __init__(self):
+        self.options = ("Heads", "Tails")
+
     def use(self, msg):
-        if random.random() < 0.0002:
-            return "Edge"
-        return random.choice(["Heads", "Tails"]), False
+        return ("Edge", False) if random.random() < 0.0002 else (random.choice(self.options), False)
 
     def get_keyword(self):
         return "flip"

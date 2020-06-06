@@ -1,6 +1,6 @@
 class Say:
     def use(self, msg):
-        return " ".join(msg[1:]) if len(msg := msg.content.split(" ")) > 1 else  "Please type a message, that can be repeated", True
+        return (" ".join(msg[1:]), True) if len(msg := msg.content.split(" ")) > 1 else ("Please type a message, that can be repeated", False)
 
     def get_keyword(self):
         return 'say'
