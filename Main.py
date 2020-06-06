@@ -12,6 +12,7 @@ from Commands.Tunjaja import Tunjaja
 from Commands.Spacey import Spacey
 from Commands.Vote.VoteManagement import VoteManagement
 from Commands.CanIHazDadJoke import CanIHazDadJoke
+import config
 
 if __name__ == "__main__":
     commands = {i.get_keyword(): i for i in (Help(), Convert(), Flip(), Hacki(), Repeat(), Say(), Spacey(), Tuncer(), VoteManagement(), Tunjaja(), CanIHazDadJoke())}
@@ -34,4 +35,4 @@ if __name__ == "__main__":
             ans = command.use(message)
             await message.channel.send(ans[0], tts=ans[1])
 
-    client.run('Mzk1NjMwOTk5ODAwNzc0NjY2.XtKGNA.ZhhIlxMP5vR_3P1tVAAPj7Rd26k')
+    client.run(config.token)
