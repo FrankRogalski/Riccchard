@@ -6,8 +6,8 @@ import commands.vote.voteManagement as voteManagement
 import config
 
 if __name__ == "__main__":
-    commands = {i.get_keyword(): i for i in (convert, countdown, dad, flip, hacki, helper, repeat, say, spacey, tuncer, tunjaja, voteManagement)}
-    commands["help"].set_class_list(commands)
+    commands = {i.keyword: i for i in (convert, countdown, dad, flip, hacki, helper, repeat, say, spacey, tuncer, tunjaja, voteManagement)}
+    commands["help"].classes = commands
 
     client = discord.Client()
     

@@ -1,6 +1,9 @@
 import sys
 from collections import namedtuple
 
+keyword = "convert"
+helping = f"|{keyword} <Numeral system'to'Numeral system> <number> - Converts numbers between two numeral systems"
+
 def is_number(s):
     try:
         float(s)
@@ -46,9 +49,3 @@ def use(msg):
         summe //= systems.goal
 
     return "".join(chr(i + 55) if i > 9 else str(i) for i in rest)[::-1], False
-
-def get_keyword():
-    return "convert"
-
-def helping():
-    return f"|{get_keyword()} <Numeral system'to'Numeral system> <number> - Converts numbers between two numeral systems"

@@ -2,6 +2,12 @@ import re
 from commands.vote.voting import Voting
 
 votings = {}
+keyword = "vote" #"|createvote\n|votefor\n|voteresults\n|delvote\nopenvotes"
+helping = """|vote create <Topic> <option 1> <option 2> ... [option n] - Creation of a voting topic"
+|vote vote <Topic> <option> - Vote for an option of a topic"
+|vote result <Topic> - Get the outcomes of a Vote"
+|vote del <Topic> - Delete a vote on a topic"
+|vote votes - Shows all open votes"""
 
 def use (msg):
     mess = msg.content
@@ -49,13 +55,3 @@ def delete_vote(votes):
 
 def get_votings():
     return f"Votes open at the moment: {''.join(votes for votes in votings.keys())}"
-
-def get_keyword():
-    return "vote" #"|createvote\n|votefor\n|voteresults\n|delvote\nopenvotes"
-
-def helping():
-    return """|vote create <Topic> <option 1> <option 2> ... [option n] - Creation of a voting topic"
-|vote vote <Topic> <option> - Vote for an option of a topic"
-|vote result <Topic> - Get the outcomes of a Vote"
-|vote del <Topic> - Delete a vote on a topic"
-|vote votes - Shows all open votes"""

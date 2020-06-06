@@ -1,3 +1,5 @@
+keyword = "countdown"
+helping = f"|{keyword} <number>, counts down from a given number"
 
 def use(message):
     split = message.content.split()
@@ -10,9 +12,3 @@ def use(message):
 
 def splitted(split):
     return " ".join(split[2:]) if len(split) > 2 else "done"
-
-def get_keyword():
-    return "countdown"
-
-def helping():
-    return f"|{get_keyword()} <number>, counts down from a given number"

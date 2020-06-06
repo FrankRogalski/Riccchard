@@ -2,6 +2,8 @@ import random
 
 counter = 0
 responses = ("Was?!?!?", "huh", "wa", "wie")
+keyword = 'hacki'
+helping = f"|{keyword} - Wakes up... if you are lucky"
 
 def use(msg):
     global counter
@@ -10,9 +12,3 @@ def use(msg):
         counter = 0
         return random.choice(responses), False
     return "...", False
-
-def get_keyword():
-    return 'hacki'
-
-def helping():
-    return f"|{get_keyword()} - Wakes up... if you are lucky"
