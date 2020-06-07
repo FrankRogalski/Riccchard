@@ -27,7 +27,7 @@ def get_systems(system_string: str) -> systems:
 def use(message: discord.message) -> str:
     msg = message.content.split()[1:]
     if len(msg) != 2:
-        return f"Wrong number of arguments. This is the Syntax: {helping()}"
+        return f"Wrong number of arguments. This is the Syntax: {helping}"
 
     try:
         systems = get_systems(msg[0])
