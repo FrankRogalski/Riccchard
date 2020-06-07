@@ -14,9 +14,11 @@ async def send_message(message: discord.message, text: Union[str, Tuple[str, boo
 
 if __name__ == "__main__":
     commands = {i.keyword: i for i in (convert, countdown, dad, flip, hacki, helper, repeat, say, spacey, tuncer, tunjaja, voteManagement)}
-    commands["help"].classes = commands
+    helper.classes = commands
 
     client = discord.Client()
+
+    symbol = "|"
     
     @client.event
     async def on_ready():
@@ -28,9 +30,8 @@ if __name__ == "__main__":
     @client.event
     async def on_message(message: discord.message):
         i = message.content.find(" ")
-        command = commands.get(message.content[1:(i if i != -1 else None)])
-        if command and message.content.startswith("|"):
+        command = commands.get(message.content[len(symbol):(i if i != -1 else None)])
+        if command and message.content.startswith(symbol):
             await send_message(message, command.use(message))
             
-
     client.run(config.token)
